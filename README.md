@@ -52,9 +52,11 @@ The X is inside of square figure determined by 1s. In the following example:
 ```
 The X is outside of the square figure determined by 1s (Coordinate (6, 10)).
 
-In [IsInsideFigureExercise.java](https://github.com/buenbit/exercise/blob/master/src/main/java/com/buenbit/exercise/IsInsideFigure.java) you'll find a
-template of the method that you should implement. Once you're done, make sure that the unit tests in
-[IsInsideFigureExerciseTest.java](https://github.com/buenbit/exercise/blob/master/src/main/java/com/buenbit/exercise/IsInsideFigureTest.java) pass successfully.
+In [IsInsideFigureExercise.java](https://github.com/buenbit/exercise/blob/master/src/main/java/com/buenbit/exercise/IsInsideFigureExercise.java) you'll find a
+template of the method that you should implement. Take into account that IsInsideFigureExercise has a constructor that
+receives a `short[][]` matrix that should be used in `isInside()` method. Once you're done, make sure that the unit
+tests in [IsInsideFigureExerciseTest.java](https://github.com/buenbit/exercise/blob/master/src/main/java/com/buenbit/exercise/IsInsideFigureExerciseTest.java)
+pass successfully.
 
 ## Some useful links
 * [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
