@@ -18,7 +18,8 @@ Buenbit via email.
 For this challenge, it is requested to write down a method named *isValid* that receives a *String* parameter, and
 returns a boolean value, indicating if the string content is well-formed or not. What does it mean to be well-formed in
 this case? For the string to be valid or well-formed, it should contain a sequence of braces, brakets and or parentheses
-that are opened and closed properly. Eg.: "{[()]}" and "((()))" are valid sequences, instead "}()" and "{)}" are not.
+that are opened and closed properly. Eg.: `"{[()]}"` and `"((()))"` are valid sequences, instead `"}()"` and `"{)}"` are
+not.
 
 In [ParenthesesExercise.java](https://github.com/buenbit/exercise/blob/master/src/main/java/com/buenbit/exercise/ParenthesesExercise.java)
 you'll find a  template of the method that you should implement. Once you're done, make sure that the unit tests in
