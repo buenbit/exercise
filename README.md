@@ -31,27 +31,40 @@ method named *isInside* that receives two integer values, representing the row a
 respectively, and returns a boolean value, indicating if the point given by such coordinates is inside a figure made by
 an outline of 1s or not.
 
-Given the following matrix, and being X the point represented by coordinates (3, 10):
+Given the following matrix, and being X the point represented by coordinates (2, 5):
 ```
-"00000000000000000000"
-"01111111111111111110"
-"01000000000000000010"
-"0100000000X000000010"
-"01000000000000000010"
-"01111111111111111110"
-"00000000000000000000"
+"0 0 0 0 0 0 0 0 0 0 0"
+"0 1 1 1 1 1 1 1 1 0 0"
+"0 1 0 0 0 X 0 0 1 0 0"
+"0 1 0 1 1 1 1 0 1 0 0"
+"0 1 0 1 0 0 1 1 1 0 0"
+"0 1 0 1 0 0 0 0 0 0 0"
+"0 1 0 1 0 0 1 1 1 0 0"
+"0 1 0 1 1 1 1 0 1 0 0"
+"0 1 0 0 0 0 0 0 1 0 0"
+"0 1 1 1 1 1 1 1 1 0 0"
+"0 0 0 0 0 0 0 0 0 0 0"
 ```
 The X is inside of square figure determined by 1s. In the following example: 
 ```
-"00000000000000000000"
-"01111111111111111110"
-"01000000000000000010"
-"01000000000000000010"
-"01000000000000000010"
-"01111111111111111110"
-"0000000000X000000000"
+"0 0 0 0 0 0 0 0 0 0 0"
+"0 1 1 1 1 1 1 1 1 0 0"
+"0 1 0 0 0 0 0 0 1 0 0"
+"0 1 0 1 1 1 1 0 1 0 0"
+"0 1 0 1 0 0 1 1 1 0 0"
+"0 1 0 1 0 X 0 0 0 0 0"
+"0 1 0 1 0 0 1 1 1 0 0"
+"0 1 0 1 1 1 1 0 1 0 0"
+"0 1 0 0 0 0 0 0 1 0 0"
+"0 1 1 1 1 1 1 1 1 0 0"
+"0 0 0 0 0 0 0 0 0 0 0"
 ```
-The X is outside of the square figure determined by 1s (Coordinate (6, 10)).
+The X is outside of the square figure determined by 1s (Coordinate (5, 5)).
+
+IMPORTANT: The figure only contains orthogonal lines, meaning that the lines made by the 1s will form only angles of 90º
+between them, and that there will not be any diagonal lines in the figure. Also, have into account that, if there is a
+figure in the matrix, then the figure is closed, meaning that if you follow the trail of 1s in the figure, there will
+not be any 0s between two consecutive 1s in the outline of the figure.
 
 In [IsInsideFigureExercise.java](https://github.com/buenbit/exercise/blob/master/src/main/java/com/buenbit/exercise/IsInsideFigureExercise.java) you'll find a
 template of the method that you should implement. Take into account that IsInsideFigureExercise has a constructor that
