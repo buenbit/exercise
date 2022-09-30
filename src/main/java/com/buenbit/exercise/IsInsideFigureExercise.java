@@ -1,5 +1,7 @@
 package com.buenbit.exercise;
 
+import java.util.*;
+
 public class IsInsideFigureExercise {
 
   private short[][] matrix;
@@ -40,7 +42,34 @@ public class IsInsideFigureExercise {
    * @return a boolean value indicating if the coordinate is surrounded by the figure made of 1s
    */
   public boolean isInside(int row, int column) {
-    // Implement functionality here
-    return true;
+    HashMap<String,Integer> figure = new HashMap<>();
+    Integer roof = null;
+    Integer floor = null;
+    Integer rightWall = null;
+
+
+   for (int i = 0 ; i < matrix.length; i++) {
+     for (int j = 0; j < matrix[i].length; j++){
+       if(matrix[i][j] == 1){
+         if(Objects.equals(roof,null)){
+           figure.put("roof",i);
+           figure.put("leftWall",j);
+           roof = i;
+         }
+         if(roof != i){
+           floor = i;
+         }
+         rightWall = j;
+       }
+     }
+   }
+
+   figure.put("floor",floor);
+   figure.put("rightWall",rightWall);
+
+   return(row > figure.get("roof") && row < figure.get("floor") &&
+     column > figure.get("leftWall") && column < figure.get("rightWall"));
+
+
   }
 }
