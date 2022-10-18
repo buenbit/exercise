@@ -40,7 +40,29 @@ public class IsInsideFigureExercise {
    * @return a boolean value indicating if the coordinate is surrounded by the figure made of 1s
    */
   public boolean isInside(int row, int column) {
-    // Implement functionality here
-    return true;
+      int top = 0;
+      int bottom = 0;
+      int right = 0;
+      int left = 0;
+
+      final int rowsLength = matrix.length;
+      for (int rowIndex = 0; rowIndex < rowsLength; rowIndex++) {
+          final int columnsLength = matrix[rowIndex].length;
+          for (int columnIndex = 0; columnIndex < columnsLength; columnIndex++) {
+              if (matrix[rowIndex][columnIndex] == 1) {
+                  if (top == 0) {
+                      top = rowIndex;
+                      left = columnIndex;
+                  }
+                  if (top != rowIndex) {
+                      bottom = rowIndex;
+                  }
+                  right = columnIndex;
+              }
+          }
+      }
+
+      return row > top && row < bottom
+              && column > left && column < right;
   }
 }
