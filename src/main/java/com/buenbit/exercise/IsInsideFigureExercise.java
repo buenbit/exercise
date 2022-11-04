@@ -14,26 +14,34 @@ public class IsInsideFigureExercise {
    *
    * Examples:
    *   a)
-   *      "00000000000000000000"
-   *      "01111111111111111110"
-   *      "01000000000000000010"
-   *      "0100000000X000000010"
-   *      "01000000000000000010"
-   *      "01111111111111111110"
-   *      "00000000000000000000"
+   *      "0 0 0 0 0 0 0 0 0 0 0"
+   *      "0 1 1 1 1 1 1 1 1 0 0"
+   *      "0 1 0 0 0 X 0 0 1 0 0"
+   *      "0 1 0 1 1 1 1 0 1 0 0"
+   *      "0 1 0 1 0 0 1 1 1 0 0"
+   *      "0 1 0 1 0 0 0 0 0 0 0"
+   *      "0 1 0 1 0 0 1 1 1 0 0"
+   *      "0 1 0 1 1 1 1 0 1 0 0"
+   *      "0 1 0 0 0 0 0 0 1 0 0"
+   *      "0 1 1 1 1 1 1 1 1 0 0"
+   *      "0 0 0 0 0 0 0 0 0 0 0"
    *
-   *   If the coordinate is given by the position of the X in the example (row = 3, column = 10), then the method should
+   *   If the coordinate is given by the position of the X in the example (row = 2, column = 5), then the method should
    *   return "true", since the coordinate is surrounded by a closed figure made by 1s.
    *   b)
-   *      "00000000000000000000"
-   *      "01111111111111111110"
-   *      "01000000000000000010"
-   *      "01000000000000000010"
-   *      "01000000000000000010"
-   *      "01111111111111111110"
-   *      "0000000000X000000000"
+   *      "0 0 0 0 0 0 0 0 0 0 0"
+   *      "0 1 1 1 1 1 1 1 1 0 0"
+   *      "0 1 0 0 0 0 0 0 1 0 0"
+   *      "0 1 0 1 1 1 1 0 1 0 0"
+   *      "0 1 0 1 0 0 1 1 1 0 0"
+   *      "0 1 0 1 0 X 0 0 0 0 0"
+   *      "0 1 0 1 0 0 1 1 1 0 0"
+   *      "0 1 0 1 1 1 1 0 1 0 0"
+   *      "0 1 0 0 0 0 0 0 1 0 0"
+   *      "0 1 1 1 1 1 1 1 1 0 0"
+   *      "0 0 0 0 0 0 0 0 0 0 0"
    *
-   *   In this case, X is placed in row = 6, column = 10, and it's outside the figure made by 1s, so the method should
+   *   In this case, X is placed in row = 5, column = 5, and it's outside the figure made by 1s, so the method should
    *   return false.
    * @param row The row coordinate in the binary matrix
    * @param column The column coordinate in the binary matrix

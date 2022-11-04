@@ -64,7 +64,8 @@ The X is outside of the square figure determined by 1s (Coordinate (5, 5)).
 IMPORTANT: The figure only contains orthogonal lines, meaning that the lines made by the 1s will form only angles of 90º
 between them, and that there will not be any diagonal lines in the figure. Also, have into account that, if there is a
 figure in the matrix, then the figure is closed, meaning that if you follow the trail of 1s in the figure, there will
-not be any 0s between two consecutive 1s in the outline of the figure.
+not be any 0s between two consecutive 1s in the outline of the figure. Last, but not least, there can be at most 1
+figure inside the matrix.
 
 In [IsInsideFigureExercise.java](https://github.com/buenbit/exercise/blob/master/src/main/java/com/buenbit/exercise/IsInsideFigureExercise.java) you'll find a
 template of the method that you should implement. Take into account that IsInsideFigureExercise has a constructor that
