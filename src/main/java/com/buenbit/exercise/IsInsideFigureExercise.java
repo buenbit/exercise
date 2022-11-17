@@ -50,39 +50,52 @@ public class IsInsideFigureExercise {
    */
   public boolean isInside(int row, int column) {
 
-    if (isMatrixLimitAndZero(row, column)) {
-
-    }
-    //going left
+    /*  Solution logic, I want to know how many ones there is in each direction
+     *   because if there number is odd is mean that it is inside a figure, since the lines of the figure
+     *   are always going to be orthogonal
+     */
+    //counting left
     int leftAmountOfOnes = iterateMatrixHorizontally(row, column, true);
 
-    //going right
+    //counting right
     int rightAmountOfOnes = iterateMatrixHorizontally(row, column, false);
 
-    //going top
+    //counting top
     int topAmountOfOnes = iterateMatrixVertically(row, column, false);
 
-    //going bottom
+    //counting bottom
     int bottomAmountOfOnes = iterateMatrixVertically(row, column, true);
 
     return verifyLimit(leftAmountOfOnes) && verifyLimit(topAmountOfOnes) && verifyLimit(bottomAmountOfOnes) && verifyLimit(rightAmountOfOnes);
   }
 
+  /**
+   * Check if the amount of ones is even or odd
+   *
+   * @param amountOfOnesForDirection
+   * @return
+   */
   private boolean verifyLimit(int amountOfOnesForDirection) {
-    return amountOfOnesForDirection % 2 != 0; //|| amountOfOnesForDirection == 0;
+    return amountOfOnesForDirection % 2 != 0;
   }
 
-  private boolean isMatrixLimitAndZero(int row, int column) {
-    return false;
-  }
-
+  /**
+   * Method in charge of iterating vertically, on row to row basis.
+   *
+   * @param currentRow
+   * @param currentColumn
+   * @param increment
+   * @return Amount of ones found
+   */
   private int iterateMatrixVertically(int currentRow, int currentColumn, boolean increment) {
     int amountOfOnes = 0;
     currentRow = increment ? currentRow + 1 : currentRow - 1;
     boolean reachedALimit = currentRow == this.matrix.length || currentRow < 0;
     if (!reachedALimit) {
-      if (matrix[currentRow][currentColumn] == 1 && ((matrix.length > currentRow + 1 && matrix[currentRow + 1][currentColumn] == 0)
-              || (0 < currentRow - 1 && matrix[currentRow - 1][currentColumn] == 0))) {
+      //need to do this checks to avoid index out of bounds errors
+      if (matrix[currentRow][currentColumn] == 1 &&
+              ((matrix.length > currentRow + 1 && matrix[currentRow + 1][currentColumn] == 0)
+                      || (0 < currentRow - 1 && matrix[currentRow - 1][currentColumn] == 0))) {
         amountOfOnes += 1;
       }
       return amountOfOnes + iterateMatrixVertically(currentRow, currentColumn, increment);
@@ -91,14 +104,23 @@ public class IsInsideFigureExercise {
     }
   }
 
+  /**
+   * Method in charge of iterating horizontally, on column to column basis.
+   *
+   * @param currentRow
+   * @param currentColumn
+   * @param increment
+   * @return Amount of ones found
+   */
   private int iterateMatrixHorizontally(int currentRow, int currentColumn, boolean increment) {
     int amountOfOnes = 0;
     currentColumn = increment ? currentColumn + 1 : currentColumn - 1;
     boolean reachedALimit = currentColumn == this.matrix[0].length || currentColumn < 0;
     if (!reachedALimit) {
-      if (matrix[currentRow][currentColumn] == 1 && ((matrix[currentRow].length > currentColumn + 1 && matrix[currentRow][currentColumn + 1] == 0)
-              || (0 < currentColumn - 1 &&
-              matrix[currentRow][currentColumn - 1] == 0))) {
+      //need to do this checks to avoid index out of bounds errors
+      if (matrix[currentRow][currentColumn] == 1 &&
+              ((matrix[currentRow].length > currentColumn + 1 && matrix[currentRow][currentColumn + 1] == 0)
+                      || (0 < currentColumn - 1 && matrix[currentRow][currentColumn - 1] == 0))) {
         amountOfOnes += 1;
       }
       return amountOfOnes + iterateMatrixHorizontally(currentRow, currentColumn, increment);
