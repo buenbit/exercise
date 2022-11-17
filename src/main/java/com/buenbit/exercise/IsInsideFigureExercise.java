@@ -49,54 +49,31 @@ public class IsInsideFigureExercise {
    * @return a boolean value indicating if the coordinate is surrounded by the figure made of 1s
    */
   public boolean isInside(int row, int column) {
-    // Implement functionality here
 
-    int currentRow;
-    int currentColumn;
-    int rightAmountOfOnes = 0;
-    int leftAmountOfOnes = 0;
-    int topAmountOfOnes = 0;
-    int bottomAmountOfOnes = 0;
-    //going right
-    currentRow = row;
-    currentColumn = column;
-    while (currentRow < this.matrix.length - 1 && currentColumn < this.matrix[0].length - 1) {
-      currentColumn += 1;
-      if (matrix[currentRow][currentColumn] == 1 && matrix[currentRow][currentColumn + 1] == 0 && matrix[currentRow][currentColumn - 1] == 0) {
-        rightAmountOfOnes += 1;
-      }
+    if (isMatrixLimitAndZero(row, column)) {
+
     }
-    leftAmountOfOnes = iterateMatrixHorizontally(row, column, true);
-
     //going left
-    rightAmountOfOnes = iterateMatrixHorizontally(row, column, false);
+    int leftAmountOfOnes = iterateMatrixHorizontally(row, column, true);
+
+    //going right
+    int rightAmountOfOnes = iterateMatrixHorizontally(row, column, false);
 
     //going top
-    currentRow = row;
-    currentColumn = column;
-
-    while (currentRow > 0 && currentColumn < this.matrix[0].length) {
-      currentRow -= 1;
-      if (matrix[currentRow][currentColumn] == 1 && matrix[currentRow - 1][currentColumn] == 0 && matrix[currentRow + 1][currentColumn] == 0) {
-        topAmountOfOnes += 1;
-      }
-    }
+    int topAmountOfOnes = iterateMatrixVertically(row, column, false);
 
     //going bottom
-    currentRow = row;
-    currentColumn = column;
-    while (currentRow < this.matrix.length - 1 && currentColumn < this.matrix[0].length) {
-      currentRow += 1;
-      if (matrix[currentRow][currentColumn] == 1 && matrix[currentRow - 1][currentColumn] == 0 && matrix[currentRow + 1][currentColumn] == 0) {
-        bottomAmountOfOnes += 1;
-      }
-    }
+    int bottomAmountOfOnes = iterateMatrixVertically(row, column, true);
 
     return verifyLimit(leftAmountOfOnes) && verifyLimit(topAmountOfOnes) && verifyLimit(bottomAmountOfOnes) && verifyLimit(rightAmountOfOnes);
   }
 
   private boolean verifyLimit(int amountOfOnesForDirection) {
-    return amountOfOnesForDirection % 2 != 0 || amountOfOnesForDirection == 0;
+    return amountOfOnesForDirection % 2 != 0; //|| amountOfOnesForDirection == 0;
+  }
+
+  private boolean isMatrixLimitAndZero(int row, int column) {
+    return false;
   }
 
   private int iterateMatrixVertically(int currentRow, int currentColumn, boolean increment) {
@@ -104,12 +81,8 @@ public class IsInsideFigureExercise {
     currentRow = increment ? currentRow + 1 : currentRow - 1;
     boolean reachedALimit = currentRow == this.matrix.length || currentRow < 0;
     if (!reachedALimit) {
-      if (matrix[currentRow][currentColumn] == 1 &&
-              (
-                      (matrix.length > currentRow + 1
-                              && matrix[currentRow + 1][currentColumn] == 0)
-                              || matrix[currentRow -1 ][currentColumn] == 0
-              )) {
+      if (matrix[currentRow][currentColumn] == 1 && ((matrix.length > currentRow + 1 && matrix[currentRow + 1][currentColumn] == 0)
+              || (0 < currentRow - 1 && matrix[currentRow - 1][currentColumn] == 0))) {
         amountOfOnes += 1;
       }
       return amountOfOnes + iterateMatrixVertically(currentRow, currentColumn, increment);
@@ -123,12 +96,9 @@ public class IsInsideFigureExercise {
     currentColumn = increment ? currentColumn + 1 : currentColumn - 1;
     boolean reachedALimit = currentColumn == this.matrix[0].length || currentColumn < 0;
     if (!reachedALimit) {
-      if (matrix[currentRow][currentColumn] == 1 &&
-              (
-                      (matrix[currentRow].length > currentColumn + 1
-                              && matrix[currentRow][currentColumn + 1] == 0)
-                              || matrix[currentRow][currentColumn - 1] == 0
-              )) {
+      if (matrix[currentRow][currentColumn] == 1 && ((matrix[currentRow].length > currentColumn + 1 && matrix[currentRow][currentColumn + 1] == 0)
+              || (0 < currentColumn - 1 &&
+              matrix[currentRow][currentColumn - 1] == 0))) {
         amountOfOnes += 1;
       }
       return amountOfOnes + iterateMatrixHorizontally(currentRow, currentColumn, increment);

@@ -3,17 +3,25 @@ package com.buenbit.exercise;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static com.buenbit.exercise.SampleMatrix.*;
+
 public class IsInsideFigureExerciseTest {
 
   @Test
   public void isInsideFigureTest() {
     IsInsideFigureExercise isInsideFigureExercise = new IsInsideFigureExercise(matrix9x10());
     Assert.assertTrue(isInsideFigureExercise.isInside(2, 3));
+    Assert.assertTrue(isInsideFigureExercise.isInside(2, 7));
     isInsideFigureExercise = new IsInsideFigureExercise(matrix5x5());
-    Assert.assertTrue(isInsideFigureExercise.isInside(1, 2));
+    Assert.assertTrue(isInsideFigureExercise.isInside(1, 1));
+    Assert.assertTrue(isInsideFigureExercise.isInside(2, 1));
+
+    isInsideFigureExercise = new IsInsideFigureExercise(matrix9x10Cross());
+    Assert.assertTrue(isInsideFigureExercise.isInside(5, 4));
+
   }
 
-  //@Test
+  @Test
   public void isOutsideFigureTest() {
     IsInsideFigureExercise isInsideFigureExercise = new IsInsideFigureExercise(matrix9x10());
 
@@ -30,30 +38,5 @@ public class IsInsideFigureExerciseTest {
    * - only one figure max inside the matrix
    * @return
    */
-  private short[][] matrix9x10() {
-    return new short[][] {
-        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-        { 0, 1, 1, 1, 1, 1, 1, 1, 1, 0 },
-        { 0, 1, 0, 0, 0, 0, 0, 0, 1, 0 },
-        { 0, 1, 0, 1, 1, 1, 1, 0, 1, 0 },
-        { 0, 1, 0, 1, 0, 0, 1, 1, 1, 0 },
-        { 0, 1, 0, 1, 0, 0, 0, 0, 0, 0 },
-        { 0, 1, 0, 1, 0, 0, 1, 1, 1, 0 },
-        { 0, 1, 0, 1, 1, 1, 1, 0, 1, 0 },
-        { 0, 1, 0, 0, 0, 0, 0, 0, 1, 0 },
-        { 0, 1, 1, 1, 1, 1, 1, 1, 1, 0 },
-        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
-    };
-  }
-  private short[][] matrix5x5() {
-    return new short[][] {
-            { 0, 0, 0, 0, 0, 0},
-            { 0, 1, 1, 1, 0, 0},
-            { 0, 1, 0, 1, 0, 0},
-            { 0, 1, 0, 1, 0, 0},
-            { 0, 1, 1, 1, 0, 0},
-            { 0, 0, 0, 0, 0, 0},
 
-    };
-  }
 }
