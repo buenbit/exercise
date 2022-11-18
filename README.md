@@ -73,6 +73,8 @@ receives a `short[][]` matrix that should be used in `isInside()` method. Once y
 tests in [IsInsideFigureExerciseTest.java](https://github.com/buenbit/exercise/blob/master/src/main/java/com/buenbit/exercise/IsInsideFigureExerciseTest.java)
 pass successfully.
 
+### How to test the solution
+Need to install maven and run mvn test, pom is configured to only run the tests of the challenge
 ## Some useful links
 * [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
 * [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.7.3/maven-plugin/reference/html/)

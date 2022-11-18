@@ -8,6 +8,11 @@ import static com.buenbit.exercise.SampleMatrix.*;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+/**
+ * Need to install maven and run mvn test,
+ * pom is configured to only run the tests
+ * of the challenge
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 public class IsInsideFigureExerciseTest {
 
