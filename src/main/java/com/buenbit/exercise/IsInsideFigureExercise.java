@@ -61,7 +61,7 @@ public class IsInsideFigureExercise {
   }
 
   private boolean isInsideTheMatrix(int row, int column) {
-    return column >= 0 && column < matrix.length && row >= 0 && row < matrix[0].length;
+    return column >= 0 && column < matrix.length -1 && row >= 0 && row < matrix[0].length - 1;
   }
 
   /** This method calculates the figure boundaries by searching the 1's position in matrix.
