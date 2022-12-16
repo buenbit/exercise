@@ -10,7 +10,6 @@ public class IsInsideFigureExerciseTest {
     IsInsideFigureExercise isInsideFigureExercise = new IsInsideFigureExercise(initializeExampleMatrix());
 
     Assert.assertTrue(isInsideFigureExercise.isInside(3, 3));
-    Assert.assertTrue(isInsideFigureExercise.isInside(2, 5));;
   }
 
   @Test
@@ -19,7 +18,6 @@ public class IsInsideFigureExerciseTest {
 
     Assert.assertFalse(isInsideFigureExercise.isInside(0, 0));
     Assert.assertFalse(isInsideFigureExercise.isInside(5, 7));
-    Assert.assertFalse(isInsideFigureExercise.isInside(4, 5));
   }
 
   @Test
@@ -27,6 +25,22 @@ public class IsInsideFigureExerciseTest {
     IsInsideFigureExercise isInsideFigureExercise = new IsInsideFigureExercise(initializeExampleMatrix());
     Assert.assertFalse(isInsideFigureExercise.isInside(1000, 2000));
   }
+
+  @Test
+  public void shouldBeOutsideAlwaysIfMatrixDoesNotHaveAFigure() {
+    short[][] matrix = initializeExampleMatrixWithoutFigure();
+    IsInsideFigureExercise isInsideFigureExercise = new IsInsideFigureExercise(matrix);
+
+    Assert.assertFalse(isInsideFigureExercise.isInside(5, 2));
+
+    for (int row = 0; row < matrix.length; row++) {
+      for (int column = 0; column < matrix[0].length; column++) {
+        Assert.assertFalse(isInsideFigureExercise.isInside(row, column));
+      }
+    }
+  }
+
+  // Add more tests if you feel like it :)
 
   private short[][] initializeExampleMatrix() {
     return new short[][] {
@@ -44,4 +58,12 @@ public class IsInsideFigureExerciseTest {
     };
   }
 
+  private short[][] initializeExampleMatrixWithoutFigure() {
+    return new short[][] {
+        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+    };
+  }
 }
