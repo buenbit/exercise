@@ -140,8 +140,7 @@ public class IsInsideFigureExercise {
     if (!isInsideMatrix(row, column)) {
       return;
     }
-    // If number was already set as true, should ignore it.
-    if (alreadyProcessed(row, column)) {
+    if (this.booleanMatrix[row][column]) {
       return;
     }
     if (matrix[row][column] == 0) {
@@ -180,11 +179,7 @@ public class IsInsideFigureExercise {
 
   private boolean isAPendingOneToProcess(int row, int column) {
     return isInsideMatrix(row, column) && matrix[row][column] == 1
-        && !alreadyProcessed(row, column);
-  }
-
-  private boolean alreadyProcessed(int row, int column) {
-    return this.booleanMatrix[row][column];
+        && !this.booleanMatrix[row][column];
   }
 
   private void printBooleanMatrix() {
