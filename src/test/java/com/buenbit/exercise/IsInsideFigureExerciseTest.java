@@ -17,7 +17,6 @@ public class IsInsideFigureExerciseTest {
     IsInsideFigureExercise isInsideFigureExercise = new IsInsideFigureExercise(initializeExampleMatrix());
 
     Assert.assertFalse(isInsideFigureExercise.isInside(0, 0));
-    Assert.assertFalse(isInsideFigureExercise.isInside(5, 7));
   }
 
   @Test
