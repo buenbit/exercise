@@ -80,7 +80,7 @@ public class IsInsideFigureExercise {
       }
     }
     //todo: This case should throw an exception if the matrix does not have a figure
-    throw new IllegalArgumentException("Matrix does not have ones");
+    return new Coordinate(0, 0);
   }
 
   /**
@@ -109,7 +109,8 @@ public class IsInsideFigureExercise {
         }
       }
     }
-    throw new IllegalArgumentException("Matrix does not have zeros");
+    //todo: This case should throw an exception if the matrix does not have a figure
+    return new Coordinate(0, 0);
   }
 
   /**
